@@ -2,7 +2,7 @@ galaxy_info:
   author: Mathias BOCQUET
   description: Ansible role to install ufw and manage firewall rules
 
-  issue_tracker_url: https://git.sekoya.org/mb/ufw/issues
+  issue_tracker_url: https://git.sekoya.org/mb/ansible_ufw/issues
 
   license: GPLv3
 

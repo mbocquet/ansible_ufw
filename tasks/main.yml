@@ -1,0 +1,56 @@
+---
+# tasks file for ufw
+- name: Package
+  become: true
+  ansible.builtin.package:
+    name: ufw
+  tags:
+    - ufw
+    - package
+
+- name: Service facts
+  become: true
+  ansible.builtin.service_facts:
+  tags:
+    - ufw
+    - service_facts
+
+- name: Rules # noqa: args[module]
+  become: true
+  community.general.ufw:
+    app: "{{ item.app | default(omit) }}"
+    comment: "{{ item.comment | default(omit) }}"
+    default: "{{ item.default | default(omit) }}"
+    delete: "{{ item.delete | default(omit) }}"
+    dest: "{{ item.dest | default(omit) }}"
+    direction: "{{ item.direction | default(omit) }}"
+    from: "{{ item.from | default(omit) }}"
+    from_ip: "{{ item.from_ip | default(omit) }}"
+    from_port: "{{ item.from_port | default(omit) }}"
+    if: "{{ item.if | default(omit) }}"
+    if_in: "{{ item.if_in | default(omit) }}"
+    if_out: "{{ item.if_out | default(omit) }}"
+    insert: "{{ item.insert | default(omit) }}"
+    insert_relative_to: "{{ item.insert_relative_to | default(omit) }}"
+    interface: "{{ item.interface | default(omit) }}"
+    interface_in: "{{ item.interface_in | default(omit) }}"
+    interface_out: "{{ item.interface_out | default(omit) }}"
+    log: "{{ item.log | default(omit) }}"
+    logging: "{{ item.logging | default(omit) }}"
+    name: "{{ item.name | default(omit) }}"
+    policy: "{{ item.policy | default(omit) }}"
+    port: "{{ item.port | default(omit) }}"
+    proto: "{{ item.proto | default(omit) }}"
+    protocol: "{{ item.protocol | default(omit) }}"
+    route: "{{ item.route | default(omit) }}"
+    rule: "{{ item.rule | default(omit) }}"
+    src: "{{ item.src | default(omit) }}"
+    state: "{{ item.state | default(omit) }}"
+    to: "{{ item.to | default(omit) }}"
+    to_ip: "{{ item.to_ip | default(omit) }}"
+    to_port: "{{ item.to_port | default(omit) }}"
+  loop: "{{ ufw_rules }}"
+  when: "'ufw.service' in services"
+  tags:
+    - ufw
+    - rules

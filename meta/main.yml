@@ -1,0 +1,25 @@
+galaxy_info:
+  author: Mathias BOCQUET
+  description: Ansible role to install ufw and manage firewall rules
+
+  issue_tracker_url: https://git.sekoya.org/mb/ufw/issues
+
+  license: GPLv3
+
+  min_ansible_version: "2.4"
+
+  platforms:
+    - name: Debian
+      versions:
+        - stretch
+        - buster
+        - bullseye
+        - bookworm
+
+  galaxy_tags:
+    - admin
+    - firewall
+    - system
+    - ufw
+
+dependencies: []

@@ -1,7 +1,7 @@
 'ansible_ufw'. Ansible role to install UFW (Uncomplicated FireWall) and manage
 firewall rules.
 
-Copyright © 2022-2023 Mathias BOCQUET (mbocquet@sekoya.org)
+Copyright © 2022-2024 Mathias BOCQUET (mbocquet@sekoya.org)
 
 This file is part of 'ansible_ufw'.
 
